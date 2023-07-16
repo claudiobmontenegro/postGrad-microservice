@@ -1,0 +1,28 @@
+spring:
+  main:
+    web-application-type: SERVLET
+  application:
+    name: carrinho-ms
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/carrinho-ms-db?createDatabaseIfNotExist=true
+    password: ''
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+logging:
+  level:
+    com.netflix.eureka: OFF
+    com.netflix.discovery: OFF
+
