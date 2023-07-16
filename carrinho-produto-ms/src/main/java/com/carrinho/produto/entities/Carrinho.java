@@ -1,5 +1,6 @@
 package com.carrinho.produto.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -16,8 +17,8 @@ public class Carrinho {
     @Enumerated(EnumType.STRING)
     private Status status;
     
-    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Produto> produtos;
+    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL)
+    private List<Produto> produtos = new ArrayList<>();
 
     public Carrinho() {
     }

@@ -1,5 +1,6 @@
 package com.carrinho.produto.controller;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -44,8 +45,9 @@ public class CarrinhoController {
 
     @PostMapping
     public ResponseEntity<CarrinhoDTO> createCarrinho(@RequestBody @Valid CarrinhoDTO carrinhoDto) {
-        CarrinhoDTO savedCarrinho = carrinhoService.save(carrinhoDto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedCarrinho);
+        CarrinhoDTO createdCarrinhoDTO = carrinhoService.createCarrinho(carrinhoDto);
+        return ResponseEntity.created(URI.create("/carrinho/" + createdCarrinhoDTO.getId()))
+                .body(createdCarrinhoDTO);
     }
 
     @PutMapping("/{id}")

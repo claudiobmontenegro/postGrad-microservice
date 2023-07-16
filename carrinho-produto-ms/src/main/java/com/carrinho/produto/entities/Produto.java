@@ -17,10 +17,11 @@ public class Produto {
     public Produto() {
     }
 
-    public Produto(String nome, int qtde, String descricao) {
+    public Produto(String nome, int quantidade, String descricao, Carrinho carrinho) {
         this.nome = nome;
-        this.qtde = qtde;
+        this.qtde = quantidade;
         this.descricao = descricao;
+        this.carrinho = carrinho;
     }
 
     public Long getId() {
